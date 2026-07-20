@@ -1,0 +1,8 @@
+{
+  "name": "EG Price Compare",
+  "description": "Real-time price comparison engine for the Egyptian market (Amazon EG & Jumia EG)",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
