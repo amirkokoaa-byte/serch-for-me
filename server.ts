@@ -2,9 +2,7 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import cors from "cors";
-import { searchAll } from "./src/scrapers/ScraperEngine";
-import { aggregateResults } from "./src/middleware/Aggregator";
-import { cacheManager } from "./src/utils/CacheManager";
+import vercelHandler from "./api/compare.js";
 
 async function startServer() {
   const app = express();
@@ -18,16 +16,9 @@ async function startServer() {
     res.json({ status: "ok" });
   });
 
-  app.get("/api/search", async (req, res) => {
+  app.get("/api/compare", async (req, res) => {
     try {
-      const query = req.query.q as string;
-      if (!query) {
-        return res.status(400).json({ error: "Query parameter 'q' is required" });
-      }
-
-      const rawResults = await cacheManager.getOrFetch(query, () => searchAll(query));
-      const aggregated = aggregateResults(query, rawResults);
-      res.json({ result: aggregated });
+      await vercelHandler(req, res);
     } catch (error: any) {
       console.error("Search error:", error);
       res.status(500).json({ error: "An error occurred while searching", details: error.message });

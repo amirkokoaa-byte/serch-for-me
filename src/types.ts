@@ -1,8 +1,10 @@
 export interface StoreOffer {
   store: string;
+  title: string;
   price: number;
   currency: string;
   url: string;
+  imageUrl: string;
 }
 
 export interface SuggestedAlternative {
@@ -16,11 +18,7 @@ export interface SuggestedAlternative {
 
 export interface AggregatedResult {
   query: string;
-  mainProduct: {
-    title: string;
-    imageUrl: string;
-    offers: StoreOffer[];
-  } | null;
+  exactMatches: StoreOffer[];
   alternatives: SuggestedAlternative[];
 }
 

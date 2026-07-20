@@ -1,7 +1,8 @@
 {
-  "name": "react-example",
+  "name": "price-comparison-engine",
+  "description": "Smart Price Comparison Engine by Amir Lamay",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
@@ -15,6 +16,7 @@
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
+    "axios": "^1.18.1",
     "cheerio": "^1.2.0",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
